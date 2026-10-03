@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Plus, BarChart2, Clock, CheckCircle, AlertCircle, Search, TrendingUp, FileText } from 'lucide-react';
+import { Plus, BarChart2, Clock, CheckCircle, AlertCircle, Search, TrendingUp, FileText, GitCompare } from 'lucide-react';
 import { cn, formatRelativeTime } from '@/lib/utils';
 
 const mockBrands = [
