@@ -18,12 +18,18 @@ export function Providers({ children }: { children: React.ReactNode }) {
       })
   );
 
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
   return (
-    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || ''}>
-      <QueryClientProvider client={queryClient}>
-        {children}
-        <Toaster position="bottom-right" />
-      </QueryClientProvider>
-    </ClerkProvider>
+    <QueryClientProvider client={queryClient}>
+      {publishableKey ? (
+        <ClerkProvider publishableKey={publishableKey}>
+          {children}
+        </ClerkProvider>
+      ) : (
+        children
+      )}
+      <Toaster position="bottom-right" />
+    </QueryClientProvider>
   );
 }
